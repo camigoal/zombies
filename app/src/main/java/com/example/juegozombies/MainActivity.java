@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         TimerTask tiempo = new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, Menu.class);
+                Intent intent = new Intent(MainActivity.this, Splash.class);
                 startActivity(intent);
                 finish();
             }
