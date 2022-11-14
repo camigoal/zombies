@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "659882803665",
+    "project_id": "juego-zombies-a1df8",
+    "storage_bucket": "juego-zombies-a1df8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659882803665:android:b0a69805bcaa88d59860f0",
+        "android_client_info": {
+          "package_name": "com.example.juegozombies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659882803665-mra9mep4eg0ceqv87smup65i8us14ndd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9PArnkeWt_rfDo7EJNK6zsqwfqbu1_Yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659882803665-mra9mep4eg0ceqv87smup65i8us14ndd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

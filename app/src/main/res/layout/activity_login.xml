@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Login">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <!--CORREO ELECTRÓNICO-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/correoLogin"
+                android:hint="@string/correoLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:importantForAutofill="no">
+            </EditText>
+
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+
+        <!--GRACIAS AL INPUT EL TECLADO EMERGE-->
+        <!--CONTRASEÑA-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"> <!--HACE VISIBLES LAS CONTRASEÑAS-->
+
+            <EditText
+                android:id="@+id/passLogin"
+                android:hint="@string/passLogin"
+                android:layout_width="match_parent"
+                android:inputType="textPassword"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:importantForAutofill="no">
+            </EditText>
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:hint="@string/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+        </Button>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>
