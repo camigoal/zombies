@@ -1,5 +1,6 @@
 package com.example.juegozombies;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,11 +12,21 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Menu extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
-    TextView MiPuntuaciontxt,uid,correo,nombre,Menutxt;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference JUGADORES;
+
+
+    TextView Zombies,uid,correo,nombre,Menutxt;
     Button CerrarSesion,Jugarbtn,AcercaDeBtn,PuntuacionesBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +35,14 @@ public class Menu extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
 
-        MiPuntuaciontxt = findViewById(R.id.MiPuntuaciontxt);
+        Zombies = findViewById(R.id.Zombies);
         uid = findViewById(R.id.uid);
         correo = findViewById(R.id.correo);
         nombre = findViewById(R.id.nombre);
         Menutxt = findViewById(R.id. Menutxt);
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        JUGADORES = firebaseDatabase.getReference( "MI DATA BASE JUGADORES");
 
 
 
@@ -71,8 +85,10 @@ public class Menu extends AppCompatActivity {
         UsuarioLogueado();
         super.onStart();
     }
+    // CUANDO SE LOGEA EL JUGADOR//
     private void UsuarioLogueado() {
         if (user != null) {
+            Consulta();
             Toast.makeText(this, "Jugador en linea", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -80,6 +96,35 @@ public class Menu extends AppCompatActivity {
             finish();
         }
     }
+
+    // CONSULTA LOS DATOS DE LA BASE DE DATOS//
+    private void Consulta() {
+        Query query = JUGADORES.orderByChild("Email").equalTo(user.getEmail());
+    query.addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                String zombiesString = "" + dataSnapshot.child("Zombies").getValue();
+                String uidString = "" + dataSnapshot.child("Uid").getValue();
+                String emailString = "" + dataSnapshot.child("Email").getValue();
+                String nombreString = "" + dataSnapshot.child("Nombres").getValue();
+
+                Zombies.setText (zombiesString);
+                uid.setText (uidString);
+                correo.setText (emailString);
+                nombre.setText(nombreString);
+            }
+
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError error) {
+
+        }
+    });
+    }
+
+    // METODO AL CERRAR SESION//
     private void CerrarSesion() {
         auth.signOut();
         startActivity (new Intent( Menu. this, MainActivity.class));
