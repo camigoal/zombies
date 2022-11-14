@@ -14,7 +14,7 @@
         android:gravity="center">
 
         <!--CORREO ELECTRÓNICO-->
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -26,14 +26,12 @@
                 android:inputType="textEmailAddress"
                 android:importantForAutofill="no">
             </EditText>
-
-
-        </com.google.android.material.textfield.TextInputEditText>
-
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!--GRACIAS AL INPUT EL TECLADO EMERGE-->
+
         <!--CONTRASEÑA-->
-        <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"> <!--HACE VISIBLES LAS CONTRASEÑAS-->
@@ -41,14 +39,15 @@
             <EditText
                 android:id="@+id/passLogin"
                 android:hint="@string/passLogin"
-                android:layout_width="match_parent"
                 android:inputType="textPassword"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints=""
                 android:importantForAutofill="no">
+                <!--android:autofillHints=""-->
+
             </EditText>
 
-        </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnLogin"

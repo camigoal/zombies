@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         Timer valor = new Timer();
-        valor.schedule(tiempo,3000);
+        valor.schedule(tiempo,2000);
 
     }
 }

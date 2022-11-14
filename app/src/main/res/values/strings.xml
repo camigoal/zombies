@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Juego zombies</string>
+    <string name="app_name">Kill zombis</string>
     <string name="btnlogin">Iniciar sesión</string>
-    <string name="btnregistro">Registrarte</string>
+    <string name="btnregistro">Crear cuenta nueva</string>
 
     <!--ACTIVIDAD REGISTRO-->
     <string name="correo">Correo electrónico</string>
@@ -13,5 +13,5 @@
     <!--ACTIVIDAD LOGIN-->
     <string name="correoLogin">Correo electrónico</string>
     <string name="passLogin">Contraseña</string>
-    <string name="btnLogin">Ingresar</string>
+    <string name="btnLogin">Iniciar sesión</string>
 </resources>
