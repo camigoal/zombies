@@ -2,8 +2,10 @@ package com.example.juegozombies;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Display;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -15,6 +17,9 @@ public class EscenarioJuego extends AppCompatActivity {
     TextView TvContador,TvNombre,Tvtiempo;
     ImageView IvZombie;
 
+    TextView AnchoTv, AltoTv;
+    int AnchoPantalla;
+    int AltoPantalla;
     int contador = 0;
 
     @Override
@@ -31,8 +36,14 @@ public class EscenarioJuego extends AppCompatActivity {
         UIDS = intent.getString("UID");
         NOMBRES = intent.getString("NOMBRE");
         ZOMBIES = intent.getString( "ZOMBIE");
+
+        AnchoTv = findViewById(R.id.AnchoTv);
+        AltoTv = findViewById(R.id.AltoTv);
+
         TvNombre.setText (NOMBRES);
         TvContador.setText (ZOMBIES);
+
+        Pantalla();
 
         //AL HACER CLIC EN ZOMBI CONTADOR AUMENTA DE 1 EN 1
         IvZombie.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +63,21 @@ public class EscenarioJuego extends AppCompatActivity {
 
             }
         });
+    }
 
+    //PARA OBTENER TAMAÑO PANTALLA
+    private void Pantalla(){
+        Display display = getWindowManager().getDefaultDisplay();
+        Point point = new Point();
+        display.getSize(point);
+
+        AnchoPantalla = point.x;
+        AltoPantalla = point.y;
+
+        String ANCHOS = String.valueOf(AnchoPantalla);
+        String ALTOS = String.valueOf(AltoPantalla);
+
+        AnchoTv.setText(ANCHOS);
+        AltoTv.setText(ALTOS);
     }
 }

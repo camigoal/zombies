@@ -14,6 +14,7 @@
     <string name="correoLogin">Correo electrónico</string>
     <string name="passLogin">Contraseña</string>
     <string name="btnLogin">Iniciar sesión</string>
+
     <!--MENU-->
     <string name="CerrarSesion">Cerrar Sesion </string>
     <string name="MiPuntuaciontxt">Mi Puntuación</string>
@@ -30,4 +31,8 @@
     <string name="TvContador">0 </string>
     <string name="TvNombre">----</string>
     <string name="Tvtiempo">0 s</string>
+
+    <!--PANTALLA-->
+    <string name="AnchoTv">--</string>
+    <string name="AltoTv">--</string>
 </resources>
