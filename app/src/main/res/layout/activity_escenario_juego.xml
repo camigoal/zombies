@@ -64,6 +64,11 @@
                 app:lottie_fileName="tiempo.json"
                 app:lottie_imageAssetsFolder="assets"
                 app:lottie_loop="true" />
+            <TextView
+                android:id="@+id/Tvtiempo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Tvtiempo" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -78,10 +83,6 @@
                 android:src="@drawable/zombie2" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <TextView
-            android:id="@+id/Tvtiempo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Tvtiempo" />
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 </RelativeLayout>
