@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"/>
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imagen"
+            android:src="@drawable/menu"
             android:layout_width="150dp"
             android:layout_height="150dp"/>
         <TextView
