@@ -42,7 +42,7 @@ public class Menu extends AppCompatActivity {
         Menutxt = findViewById(R.id. Menutxt);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        JUGADORES = firebaseDatabase.getReference( "MI DATA BASE JUGADORES");
+        JUGADORES = firebaseDatabase.getReference( "Db jugadores");
 
 
 
@@ -56,6 +56,15 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(Menu.this, "JUGAR", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent( Menu. this, EscenarioJuego.class);
+
+                String Uids = uid.getText().toString();
+                String Nombres = nombre.getText().toString();
+                String Zombies2 = Zombies.getText().toString();
+                intent.putExtra (  "UID", Uids);
+                intent.putExtra( "NOMBRE", Nombres);
+                intent.putExtra(  "ZOMBIE", Zombies2);
+                startActivity (intent); Toast.makeText( Menu. this, "ENVIANDO PARÁMETROS", Toast.LENGTH_SHORT).show();
             }
         });
         PuntuacionesBtn.setOnClickListener(new View.OnClickListener() {
@@ -103,11 +112,11 @@ public class Menu extends AppCompatActivity {
     query.addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                String zombiesString = "" + dataSnapshot.child("Zombies").getValue();
-                String uidString = "" + dataSnapshot.child("Uid").getValue();
-                String emailString = "" + dataSnapshot.child("Email").getValue();
-                String nombreString = "" + dataSnapshot.child("Nombres").getValue();
+            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                String zombiesString = "" + dataSnapshot1.child("Zombis").getValue();
+                String uidString = "" + dataSnapshot1.child("Uid").getValue();
+                String emailString = "" + dataSnapshot1.child("Email").getValue();
+                String nombreString = "" + dataSnapshot1.child("Nombre").getValue();
 
                 Zombies.setText (zombiesString);
                 uid.setText (uidString);
