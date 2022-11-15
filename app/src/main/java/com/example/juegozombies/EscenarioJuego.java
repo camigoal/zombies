@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class EscenarioJuego extends AppCompatActivity {
 
     String UIDS, NOMBRES,ZOMBIES;
@@ -20,6 +22,9 @@ public class EscenarioJuego extends AppCompatActivity {
     TextView AnchoTv, AltoTv;
     int AnchoPantalla;
     int AltoPantalla;
+
+    Random aleatorio;
+
     int contador = 0;
 
     @Override
@@ -58,6 +63,7 @@ public class EscenarioJuego extends AppCompatActivity {
                     @Override
                     public void run() {
                         IvZombie.setImageResource(R.drawable.zombie2);
+                        Movimiento();
                     }
                 },500);
 
@@ -79,5 +85,21 @@ public class EscenarioJuego extends AppCompatActivity {
 
         AnchoTv.setText(ANCHOS);
         AltoTv.setText(ALTOS);
+
+        aleatorio = new Random();
+    }
+
+    private void Movimiento(){
+        int min = 0;
+        /*MAX CORDENADA X*/
+        int MaximoX =AnchoPantalla - IvZombie.getWidth();
+        /*MAX CORDENADA Y*/
+        int MaximoY = AltoPantalla - IvZombie.getHeight();
+
+        int randomX =aleatorio.nextInt(((MaximoX - min) + 1) + min);
+        int randomY = aleatorio.nextInt(((MaximoY - min) + 1) + min);
+
+        IvZombie.setX(randomX);
+        IvZombie.setY(randomY);
     }
 }
