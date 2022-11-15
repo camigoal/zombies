@@ -4,14 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#0d0d0d"
     tools:context=".Login">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
-        android:padding="10dp"
-        android:gravity="center">
+        android:padding="10dp">
 
         <!--CORREO ELECTRÓNICO-->
         <com.google.android.material.textfield.TextInputLayout
@@ -20,12 +21,11 @@
 
             <EditText
                 android:id="@+id/correoLogin"
-                android:hint="@string/correoLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:importantForAutofill="no">
-            </EditText>
+                android:hint="@string/correoLogin"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"></EditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--GRACIAS AL INPUT EL TECLADO EMERGE-->
@@ -38,11 +38,11 @@
 
             <EditText
                 android:id="@+id/passLogin"
-                android:hint="@string/passLogin"
-                android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:importantForAutofill="no">
+                android:hint="@string/passLogin"
+                android:importantForAutofill="no"
+                android:inputType="textPassword">
                 <!--android:autofillHints=""-->
 
             </EditText>
@@ -51,10 +51,11 @@
 
         <Button
             android:id="@+id/btnLogin"
-            android:hint="@string/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:hint="@string/btnLogin"
+            android:textColor="#FFFFFF">
         </Button>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

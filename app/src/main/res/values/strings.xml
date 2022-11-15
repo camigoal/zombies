@@ -4,7 +4,7 @@
     <string name="btnregistro">Crear cuenta nueva</string>
 
     <!--ACTIVIDAD REGISTRO-->
-    <string name="correo">Correo electrónico</string>
+    <string name="correo">Correo electronico</string>
     <string name="pass">Contraseña</string>
     <string name="nombre">Nombre</string>
     <string name="fechaText">Fecha</string>
@@ -16,13 +16,13 @@
     <string name="btnLogin">Iniciar sesión</string>
 
     <!--MENU-->
-    <string name="CerrarSesion">Cerrar Sesion </string>
-    <string name="MiPuntuaciontxt">Mi Puntuación</string>
+    <string name="CerrarSesion">Cerrar Sesion</string>
+    <string name="MiPuntuaciontxt">Mi Puntuacion</string>
     <string name="Zombies"> -- </string>
     <string name="uid"> -- </string>
     <string name="correo1"> -- </string>
     <string name="nombre1"> -- </string>
-    <string name="Menutxt">Menú</string>
+    <string name="Menutxt">Menu</string>
     <string name="JugarBtn">Jugar</string>
     <string name="PuntuacionesBtn">Puntuaciones</string>
     <string name="AcercaDeBtn">Acerca de</string>

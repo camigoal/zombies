@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,15 +26,19 @@ public class Menu extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference JUGADORES;
 
-
     TextView Zombies,uid,correo,nombre,Menutxt;
     Button CerrarSesion,Jugarbtn,AcercaDeBtn,PuntuacionesBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
+
+        //UBICACIÓN FUENTE
+        String ubicacion = "fuentes/ZOMBIE.TTF";
+        Typeface Tf = Typeface.createFromAsset(Menu.this.getAssets(), ubicacion);
 
         Zombies = findViewById(R.id.Zombies);
         uid = findViewById(R.id.uid);
@@ -44,15 +49,18 @@ public class Menu extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         JUGADORES = firebaseDatabase.getReference( "Db jugadores");
 
-
-
         CerrarSesion = findViewById(R.id.CerrarSesion);
         Jugarbtn = findViewById(R.id.Jugarbtn);
         AcercaDeBtn = findViewById(R.id.AcercaDeBtn);
         PuntuacionesBtn = findViewById(R.id.PuntuacionesBtn);
 
-        Jugarbtn.setOnClickListener(new View.OnClickListener() {
+        Menutxt.setTypeface(Tf);
+        CerrarSesion.setTypeface(Tf);
+        Jugarbtn.setTypeface(Tf);
+        AcercaDeBtn.setTypeface(Tf);
+        PuntuacionesBtn.setTypeface(Tf);
 
+        Jugarbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(Menu.this, "JUGAR", Toast.LENGTH_SHORT).show();
@@ -79,7 +87,6 @@ public class Menu extends AppCompatActivity {
                 Toast.makeText( Menu. this,  "ACERCA DE", Toast.LENGTH_SHORT).show();
             }
         });
-
 
         CerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +130,6 @@ public class Menu extends AppCompatActivity {
                 correo.setText (emailString);
                 nombre.setText(nombreString);
             }
-
         }
 
         @Override
@@ -137,6 +143,6 @@ public class Menu extends AppCompatActivity {
     private void CerrarSesion() {
         auth.signOut();
         startActivity (new Intent( Menu. this, MainActivity.class));
-        Toast.makeText(this,"Cerrado sesión exitosamente", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Has cerrado la sesión", Toast.LENGTH_SHORT).show();
     }
 }
