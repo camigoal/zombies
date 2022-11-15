@@ -27,7 +27,7 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imagen"
             android:layout_width="150dp"
-            android:src="@drawable/zombie"
+            android:src="@drawable/menu"
             android:layout_height="150dp"/>
         <TextView
             android:id="@+id/uid"
