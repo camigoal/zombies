@@ -54,16 +54,11 @@ public class Menu extends AppCompatActivity {
         AcercaDeBtn = findViewById(R.id.AcercaDeBtn);
         PuntuacionesBtn = findViewById(R.id.PuntuacionesBtn);
 
-        Zombies.setTypeface(Tf);
-        uid.setTypeface(Tf);
-        correo.setTypeface(Tf);
-        nombre.setTypeface(Tf);
         Menutxt.setTypeface(Tf);
         CerrarSesion.setTypeface(Tf);
         Jugarbtn.setTypeface(Tf);
         AcercaDeBtn.setTypeface(Tf);
         PuntuacionesBtn.setTypeface(Tf);
-
 
         Jugarbtn.setOnClickListener(new View.OnClickListener() {
             @Override
