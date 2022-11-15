@@ -2,14 +2,18 @@ package com.example.juegozombies;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.Display;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -24,6 +28,9 @@ public class EscenarioJuego extends AppCompatActivity {
     int AltoPantalla;
 
     Random aleatorio;
+
+    boolean GameOver = false;
+    Dialog miDialog;
 
     int contador = 0;
 
@@ -41,6 +48,7 @@ public class EscenarioJuego extends AppCompatActivity {
         UIDS = intent.getString("UID");
         NOMBRES = intent.getString("NOMBRE");
         ZOMBIES = intent.getString( "ZOMBIE");
+        miDialog = new Dialog(EscenarioJuego.this);
 
         AnchoTv = findViewById(R.id.AnchoTv);
         AltoTv = findViewById(R.id.AltoTv);
@@ -49,24 +57,26 @@ public class EscenarioJuego extends AppCompatActivity {
         TvContador.setText (ZOMBIES);
 
         Pantalla();
+        CuentaAtras ();
 
         //AL HACER CLIC EN ZOMBI CONTADOR AUMENTA DE 1 EN 1
         IvZombie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                contador++;
-                TvContador.setText(String.valueOf(contador));
+                if (!GameOver) {
+                    contador++;
+                    TvContador.setText(String.valueOf(contador));
 
-                IvZombie.setImageResource(R.drawable.zombieaplastado);
+                    IvZombie.setImageResource(R.drawable.zombieaplastado);
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        IvZombie.setImageResource(R.drawable.zombie2);
-                        Movimiento();
-                    }
-                },500);
-
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            IvZombie.setImageResource(R.drawable.zombie2);
+                            Movimiento();
+                        }
+                    }, 500);
+                }
             }
         });
     }
@@ -102,4 +112,60 @@ public class EscenarioJuego extends AppCompatActivity {
         IvZombie.setX(randomX);
         IvZombie.setY(randomY);
     }
+    private void CuentaAtras () {
+     new CountDownTimer( 30000, 1000) {
+         public void onTick(long millisUntilFinished) {
+             long segundosRestantes = millisUntilFinished / 1000;
+             Tvtiempo.setText(segundosRestantes + "S");
+         }
+    public void onFinish() {
+                 Tvtiempo.setText("0S");
+        GameOver = true;
+        MensajeGameOver ();
+
+    }
+         }.start();
+     }
+
+    private void MensajeGameOver() {
+
+        TextView SeacaboTXT,HasmatadoTXT,NumeroTXT;
+        Button JUGARDENUEVO,IRMENU,PUNTAJES;
+
+        miDialog.setContentView(R.layout. gameover);
+
+        SeacaboTXT= miDialog.findViewById (R. id. SeacaboTXT);
+        HasmatadoTXT = miDialog.findViewById (R.id. HasmatadoTXT);
+        NumeroTXT= miDialog.findViewById (R. id. NumeroTXT);
+
+        JUGARDENUEVO = miDialog.findViewById (R.id. JUEGARDENUEVO);
+        IRMENU = miDialog.findViewById (R. id. IRMENU);
+        PUNTAJES = miDialog.findViewById (R. id. PUNTAJES);
+
+        String zombies = String.valueOf(contador);
+        NumeroTXT.setText(zombies);
+        miDialog.show();
+
+        JUGARDENUEVO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText( EscenarioJuego.this,  "JUGAR DE NUEVO", Toast.LENGTH_SHORT).show();
+            }
+        });
+        IRMENU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText( EscenarioJuego.this,  "MENU", Toast.LENGTH_SHORT).show();
+            }
+        });
+        PUNTAJES.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText( EscenarioJuego.this,  "PUNTAJES", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+        }
 }
