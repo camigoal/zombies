@@ -25,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/correoLogin"
                 android:importantForAutofill="no"
-                android:inputType="textEmailAddress"></EditText>
+                android:inputType="textEmailAddress"
+                tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--GRACIAS AL INPUT EL TECLADO EMERGE-->
@@ -42,7 +43,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/passLogin"
                 android:importantForAutofill="no"
-                android:inputType="textPassword">
+                android:inputType="textPassword"
+                tools:ignore="SpeakableTextPresentCheck">
                 <!--android:autofillHints=""-->
 
             </EditText>
@@ -54,8 +56,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:backgroundTint="#AD2611"
             android:hint="@string/btnLogin"
-            android:textColor="#FFFFFF">
+            android:textColor="@color/white">
         </Button>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

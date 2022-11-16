@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#0d0d17"
     tools:context=".Registro">
 
@@ -93,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/pais"
                 android:importantForAutofill="no"
-                android:inputType="text"></EditText>
+                android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--FECHA ACTUAL-->
@@ -113,6 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:backgroundTint="#AD2611"
             android:text="@string/registrarte">
         </Button>
 

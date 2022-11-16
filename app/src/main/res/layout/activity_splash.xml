@@ -17,17 +17,17 @@
     <Button
         android:id="@+id/btnlogin"
         android:layout_width="match_parent"
+        android:backgroundTint="#AD2611"
         android:layout_height="wrap_content"
-        android:background="#7f727c"
-        android:text="@string/btnlogin"></Button>
+        android:text="@string/btnlogin"/>
 
     <Button
         android:id="@+id/btnregistro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#AD2611"
         android:layout_marginTop="10dp"
-        android:background="#7f727c"
-        android:text="@string/btnregistro"></Button>
+        android:text="@string/btnregistro"/>
 
 
   </LinearLayout>

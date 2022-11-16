@@ -59,7 +59,6 @@ public class Menu extends AppCompatActivity {
 
         CerrarSesion = findViewById(R.id.CerrarSesion);
         Jugarbtn = findViewById(R.id.Jugarbtn);
-        EditarBtn = findViewById(R.id.EditarBtn);
         PuntuacionesBtn = findViewById(R.id.PuntuacionesBtn);
 
 
@@ -131,11 +130,7 @@ public class Menu extends AppCompatActivity {
                 edad1.setText(edadString);
                 pais1.setText(paisString);
 
-                try {
-                    Picasso.get().load(imagen).into(imagenPerfil);
-                }catch (Exception e) {
-                    Picasso.get().load(R.drawable.xmask).into(imagenPerfil);
-                }
+
 
 
             }
