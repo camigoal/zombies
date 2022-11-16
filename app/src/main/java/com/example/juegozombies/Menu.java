@@ -19,6 +19,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Menu extends AppCompatActivity {
     FirebaseAuth auth;
@@ -26,8 +29,10 @@ public class Menu extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference JUGADORES;
 
-    TextView Zombies,uid,correo,nombre,Menutxt;
-    Button CerrarSesion,Jugarbtn,AcercaDeBtn,PuntuacionesBtn;
+    TextView Zombies,uid,correo,nombre,edad1,pais1,Menutxt;
+    Button CerrarSesion,Jugarbtn,EditarBtn,CambiarPassBtn,AcercaDeBtn,PuntuacionesBtn;
+    CircleImageView imagenPerfil;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +45,13 @@ public class Menu extends AppCompatActivity {
         String ubicacion = "fuentes/ZOMBIE.TTF";
         Typeface Tf = Typeface.createFromAsset(Menu.this.getAssets(), ubicacion);
 
+        imagenPerfil = findViewById(R.id.imagenPerfil);
         Zombies = findViewById(R.id.Zombies);
         uid = findViewById(R.id.uid);
         correo = findViewById(R.id.correo);
         nombre = findViewById(R.id.nombre);
+        edad1 = findViewById(R.id.edad1);
+        pais1 = findViewById(R.id.pais1);
         Menutxt = findViewById(R.id. Menutxt);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -51,12 +59,16 @@ public class Menu extends AppCompatActivity {
 
         CerrarSesion = findViewById(R.id.CerrarSesion);
         Jugarbtn = findViewById(R.id.Jugarbtn);
+        EditarBtn = findViewById(R.id.EditarBtn);
+        CambiarPassBtn = findViewById(R.id.CambiarPassBtn);
         AcercaDeBtn = findViewById(R.id.AcercaDeBtn);
         PuntuacionesBtn = findViewById(R.id.PuntuacionesBtn);
 
-        Menutxt.setTypeface(Tf);
+
         CerrarSesion.setTypeface(Tf);
         Jugarbtn.setTypeface(Tf);
+        EditarBtn.setTypeface(Tf);
+        CambiarPassBtn.setTypeface(Tf);
         AcercaDeBtn.setTypeface(Tf);
         PuntuacionesBtn.setTypeface(Tf);
 
@@ -75,12 +87,28 @@ public class Menu extends AppCompatActivity {
                 startActivity (intent); Toast.makeText( Menu. this, "ENVIANDO PARÁMETROS", Toast.LENGTH_SHORT).show();
             }
         });
+
+        EditarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Menu.this,"EDITAR",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        CambiarPassBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Menu.this,"CAMBIAR CONTRASEÑA",Toast.LENGTH_SHORT).show();
+            }
+        });
+
         PuntuacionesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText( Menu.this,  "PUNTUACIONES", Toast.LENGTH_SHORT).show();
             }
         });
+
         AcercaDeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,11 +152,24 @@ public class Menu extends AppCompatActivity {
                 String uidString = "" + dataSnapshot1.child("Uid").getValue();
                 String emailString = "" + dataSnapshot1.child("Email").getValue();
                 String nombreString = "" + dataSnapshot1.child("Nombre").getValue();
+                String edadString = "" + dataSnapshot1.child("Edad").getValue();
+                String paisString = "" + dataSnapshot1.child("Pais").getValue();
+                String imagen = "" + dataSnapshot1.child("Imagen").getValue();
 
                 Zombies.setText (zombiesString);
                 uid.setText (uidString);
                 correo.setText (emailString);
                 nombre.setText(nombreString);
+                edad1.setText(edadString);
+                pais1.setText(paisString);
+
+                try {
+                    Picasso.get().load(imagen).into(imagenPerfil);
+                }catch (Exception e) {
+                    Picasso.get().load(R.drawable.mask).into(imagenPerfil);
+                }
+
+
             }
         }
 

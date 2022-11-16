@@ -3,59 +3,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0d0d0d"
+    android:background="#0d0d17"
     tools:context=".Registro">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp">
 
+        <!--IMAGEN-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/mask" />
+
+        <!--CORREO ELECTRÓNICO-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!--CORREO ELECTRÓNICO-->
             <EditText
                 android:id="@+id/correo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/correo"
                 android:importantForAutofill="no"
-                android:inputType="textEmailAddress"></EditText>
+                android:inputType="textEmailAddress">
+            </EditText>
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!--CONTRASEÑA-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!--CONTRASEÑA-->
             <EditText
                 android:id="@+id/pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/pass"
                 android:importantForAutofill="no"
-                android:inputType="textPassword"></EditText>
-
+                android:inputType="textPassword">
+            </EditText>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!--NOMBRE-->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!--NOMBRE-->
             <EditText
                 android:id="@+id/nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/nombre"
                 android:importantForAutofill="no"
-                android:inputType="text"></EditText>
+                android:inputType="text">
+            </EditText>
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <!--EDAD-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/edad"
+                android:importantForAutofill="no"
+                android:inputType="text">
+            </EditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--PAIS-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/pais"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/pais"
+                android:importantForAutofill="no"
+                android:inputType="text"></EditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--FECHA ACTUAL-->
@@ -66,7 +103,8 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="@string/fechaText"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp">
+        </TextView>
 
         <!--REGISTRO DE JUGADOR-->
         <Button
@@ -74,8 +112,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/registrarte"></Button>
+            android:text="@string/registrarte">
+        </Button>
 
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </RelativeLayout>

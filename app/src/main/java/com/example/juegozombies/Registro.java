@@ -29,7 +29,7 @@ import java.util.HashMap;
 public class Registro extends AppCompatActivity {
 
     //DECLARACIÓN DE VARIABLES
-    EditText correo, pass, nombre;
+    EditText correo, pass, nombre, edad, pais;
     TextView fechaText;
     Button registrarte;
     FirebaseAuth auth; //FIREBASE AUTENTICACIÓN
@@ -43,6 +43,8 @@ public class Registro extends AppCompatActivity {
         correo = findViewById(R.id.correo);
         pass = findViewById(R.id.pass);
         nombre = findViewById(R.id.nombre);
+        edad = findViewById(R.id.edad);
+        pais = findViewById(R.id.pais);
         fechaText = findViewById(R.id.fecha);
         registrarte = findViewById(R.id.registrarte);
 
@@ -93,6 +95,8 @@ public class Registro extends AppCompatActivity {
                             String correoString = correo.getText().toString();
                             String passString = pass.getText().toString();
                             String nombreString = nombre.getText().toString();
+                            String edadString = edad.getText().toString();
+                            String paisString = pais.getText().toString();
                             String fechaString = fechaText.getText().toString();
 
                             HashMap<Object,Object> DatosJUGADOR = new HashMap<>();
@@ -101,6 +105,9 @@ public class Registro extends AppCompatActivity {
                             DatosJUGADOR.put("Email", correoString);
                             DatosJUGADOR.put("Password", passString);
                             DatosJUGADOR.put("Nombre", nombreString);
+                            DatosJUGADOR.put("Edad", edadString);
+                            DatosJUGADOR.put("Pais", paisString);
+                            DatosJUGADOR.put("Imagen", "");
                             DatosJUGADOR.put("Fecha", fechaString);
                             DatosJUGADOR.put("Zombis", contador);
 
