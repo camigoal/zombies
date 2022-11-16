@@ -29,11 +29,13 @@
             </TextView>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:src="@drawable/mask"
+                android:id="@+id/imagenPerfil"
+                android:src="@drawable/xmask"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_width="150dp"
-                android:layout_height="150dp"/>
+                android:layout_height="150dp"
+                />
 
             <TextView
                 android:id="@+id/uid"
@@ -135,23 +137,6 @@
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/CambiarPassBtn"
-            android:text="@string/CambiarPassBtn"
-            android:background="@drawable/boton_personalizado"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/AcercaDeBtn"
-            android:background="@drawable/boton_personalizado"
-            android:text="@string/AcercaDeBtn"
-            android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
         <Button
             android:id="@+id/PuntuacionesBtn"
             android:background="@drawable/boton_personalizado"
