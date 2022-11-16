@@ -3,6 +3,7 @@ package com.example.juegozombies;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ public class Menu extends AppCompatActivity {
     Button CerrarSesion,Jugarbtn,EditarBtn,CambiarPassBtn,AcercaDeBtn,PuntuacionesBtn;
     CircleImageView imagenPerfil;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +44,6 @@ public class Menu extends AppCompatActivity {
         user = auth.getCurrentUser();
 
         //UBICACIÓN FUENTE
-        String ubicacion = "fuentes/ZOMBIE.TTF";
-        Typeface Tf = Typeface.createFromAsset(Menu.this.getAssets(), ubicacion);
 
         imagenPerfil = findViewById(R.id.imagenPerfil);
         Zombies = findViewById(R.id.Zombies);
@@ -64,13 +64,6 @@ public class Menu extends AppCompatActivity {
         AcercaDeBtn = findViewById(R.id.AcercaDeBtn);
         PuntuacionesBtn = findViewById(R.id.PuntuacionesBtn);
 
-
-        CerrarSesion.setTypeface(Tf);
-        Jugarbtn.setTypeface(Tf);
-        EditarBtn.setTypeface(Tf);
-        CambiarPassBtn.setTypeface(Tf);
-        AcercaDeBtn.setTypeface(Tf);
-        PuntuacionesBtn.setTypeface(Tf);
 
         Jugarbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -166,7 +159,7 @@ public class Menu extends AppCompatActivity {
                 try {
                     Picasso.get().load(imagen).into(imagenPerfil);
                 }catch (Exception e) {
-                    Picasso.get().load(R.drawable.mask).into(imagenPerfil);
+                    Picasso.get().load(R.drawable.xmask).into(imagenPerfil);
                 }
 
 

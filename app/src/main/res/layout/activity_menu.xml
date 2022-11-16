@@ -29,11 +29,13 @@
             </TextView>
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:src="@drawable/mask"
+                android:id="@+id/imagenPerfil"
+                android:src="@drawable/xmask"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_width="150dp"
-                android:layout_height="150dp"/>
+                android:layout_height="150dp"
+                />
 
             <TextView
                 android:id="@+id/uid"

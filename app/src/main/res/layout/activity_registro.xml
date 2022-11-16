@@ -15,10 +15,11 @@
 
         <!--IMAGEN-->
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imagenPerfil"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="5dp"
-            android:src="@drawable/mask" />
+            android:src="@drawable/xmask" />
 
         <!--CORREO ELECTRÓNICO-->
         <com.google.android.material.textfield.TextInputLayout
